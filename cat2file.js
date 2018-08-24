@@ -12,10 +12,7 @@ let catFiles;
 function combineFiles (inputFile1, inputFile2){
 
     var promise = new Promise(function (resolve, reject) {
-
-
         try{
-
             fs.readFile(inputFile1, 'utf8', function(err, data){
                 if (err){
                     reject(err)
@@ -25,28 +22,10 @@ function combineFiles (inputFile1, inputFile2){
                     resolve(data);
                 }
             })
-
-
-            // input = fs.appendFile(inputFile1, inputFile2, function(err){
-            
-            //     if (err){
-            //         reject(err);
-            //     }
-            //     console.log('input', input);
-            //     resolve(input);
-                
-            // });
         }
         catch(error){
             reject(error)
         }
-
-        
-
-        // // 
-
-        // resolve('hello world');
-
     })
     .then (function(results){
         
@@ -55,11 +34,7 @@ function combineFiles (inputFile1, inputFile2){
                 catFile += data;
 
                 return results;
-           
         })
-            // fs.readFile(input, function(err){
-            //     if (err) reject(err);
-            
     })
     .then (function(results){
 
@@ -76,17 +51,6 @@ function combineFiles (inputFile1, inputFile2){
 }
 
 combineFiles(inputFile1, inputFile2);
-//         fs.writeFile(output.txt, url, function(err){
-//             if (err) reject(err);
-
-//     }).then(function(results) {
-//     console.log("results here: " + results)
-// }).catch(function(err) {
-//     console.log("error here: " + err);
-// })
-
-    
-//}
 
 
 app.listen(3000);
