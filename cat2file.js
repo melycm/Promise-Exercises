@@ -28,25 +28,23 @@ function combineFiles (inputFile1, inputFile2){
         }
     })
     .then (function(results){
-        
         fs.readFile(inputFile2, 'utf8', function(err, data){
-            
+            if (err){
+                reject(err);
+            }else{
                 catFile += data;
-
                 return results;
+            }
         })
     })
     .then (function(results){
-
         console.log(catFile);
-        
         fs.writeFile('output.txt', catFile, 'utf8', function(err){
             if (err) reject(err);
         })
     }).catch(function(err) {
         console.log("error here: " + err);
     });
-    
     return promise;
 }
 
